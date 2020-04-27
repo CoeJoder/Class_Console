@@ -140,7 +140,7 @@ class console
 				GuiControl,,% ("cc" A_Gui,Gui:=%A_Gui%.Name)
 			}else cc%Gui%:=cc%Gui%_B,Gui:=Gui_B
 			; [JN] intercept the input
-			if (%Gui%.Interceptor && !%Gui%.Interceptor.OnInput(cc%Gui%)) {
+			if (%Gui%.Interceptor && !%Gui%.Interceptor._OnConsoleInput(cc%Gui%)) {
 				return
 			}
 			For Temp_ in ((InStr(cc%Gui%," ")?cmd:=StrSplit(cc%Gui%,[" ","`t"]):(cmd:=[],cmd[1]:=(InStr(cc%Gui%,",")?SubStr(cc%Gui%,1,InStr(cc%Gui%,",")-1):cc%Gui%))),cmd2:=StrSplit((InStr(cc%Gui%," ")?SubStr(cc%Gui%,InStr(cc%Gui%," ")+1):cc%Gui%),","))
